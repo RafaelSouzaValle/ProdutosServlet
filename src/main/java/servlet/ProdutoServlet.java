@@ -19,7 +19,10 @@ public class ProdutoServlet extends HttpServlet {
 		
 		try {
 			saida = response.getWriter();
-			saida.print("Um olá do Servlet!");
+			
+			response.setContentType("text/html");
+			
+			saida.print("<H1>Um olá do Servlet!</H1>");
 		} finally {
 			saida.close();
 		}
