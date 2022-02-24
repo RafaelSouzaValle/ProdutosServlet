@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/ProdutoServlet")
+@WebServlet(urlPatterns = "/ProdutoServlet", loadOnStartup = 1)
 public class ProdutoServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -32,5 +32,12 @@ public class ProdutoServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
+	@Override
+	public void init() throws ServletException {
+		System.out.println("ProdutoServlet iniciado!");
+	}
+	
+	
 
 }
