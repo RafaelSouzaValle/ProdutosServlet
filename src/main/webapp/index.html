@@ -2,21 +2,66 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>Cadastro de produtos</title>
 </head>
 <body>
-	<h1>Cadastro de Produtos</h1>
-	
-	<form action="">
-		<label>Cod:</label>
-		<input type="text" /><br />
-		
-		<label>Descrição:</label>
-		<input type="text" /><br />
-		
-		<label>Valor:</label>
-		<input type="text" /><br />
-	</form>
+
+
+
+	<div class="container" style="padding: 16px">
+
+		<h1>Cadastro de Produtos</h1>
+		<div class="row">
+			<div class="col-md-6">
+				<form action="ProdutoServlet">
+					<div class="mb-3">
+						<label for="cod" class="form-label">Cod:</label>
+						<input type="text" class="form-control" id="cod" name="cod"
+						onblur="verificaCampos()" onchange="verificaCampos()">
+					</div>
+
+					<div class="mb-3">
+						<label for="descricao" class="form-label">Descrição:</label>
+						<input type="text" class="form-control" id="descricao" name="descricao"
+						onblur="verificaCampos()" onchange="verificaCampos()">
+					</div>
+
+					<div class="mb-3">
+						<label for="valor" class="form-label">Valor:</label>
+						<input type="text" class="form-control" id="valor" name="valor"
+						onblur="verificaCampos()" onchange="verificaCampos()" >
+					</div>
+
+					<button type="submit" class="btn btn-primary"
+					id="enviar" disabled>Salvar</button>
+				</form>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		function verificaCampos() {
+			
+			var cod = document.getElementById("cod").value;
+			var descricao = document.getElementById("descricao").value;
+			var valor = document.getElementById("valor").value;
+			var btnEnviar = document.getElementById("enviar");
+			
+			if(cod.length < 1 || descricao.length < 1 || valor.length < 1) {
+				btnEnviar.disabled = true;
+				console.log("incompleto");
+				
+			} else {
+				btnEnviar.disabled = false;
+			}
+		}
+	</script>
 </body>
 </html>
